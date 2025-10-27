@@ -1,5 +1,7 @@
 const express = require('express')
 
+const os = require('os');
+
 const app = express()
 
 const port = 80
@@ -16,7 +18,7 @@ const phrases = [
 
 app.get('/', (req, res) => {
   const number = Math.floor(Math.random() * 7);
-  res.send(phrases[number])
+  res.send(phrases[number]+" - Container Id: "+os.hostname());
 })
 
 app.listen(port, () => {
